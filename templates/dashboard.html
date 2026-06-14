@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <style>
+            body{
+                margin:0;
+                font-family: Arial;
+
+                /* 🌈 LIGHT COOL BACKGROUND (NO WHITE) */
+                background: linear-gradient(135deg, #e3f2fd, #f1f8ff, #e8f5e9);
+            }
+
+            .container{
+                width:85%;
+                margin:40px auto;
+            }
+
+            /* 🎯 MAIN TITLE */
+            h1{
+                text-align:center;
+                font-size:34px;
+                font-weight:900;
+
+                /* 🌈 GRADIENT TEXT */
+                background: linear-gradient(90deg, #1e3c72, #2a5298, #1b5e20);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                margin-bottom:30px;
+            }
+
+            /* 🔲 GRID */
+            .grid{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            /* 🧊 CARD STYLE */
+            .card{
+                background: rgba(255,255,255,0.65);
+                border-radius:14px;
+                padding:20px;
+
+                box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+                backdrop-filter: blur(6px);
+
+                transition:0.3s;
+            }
+
+            .card:hover{
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            }
+
+            /* 🔥 BOLD COLORED HEADINGS */
+            .card h2{
+                font-size:18px;
+                font-weight:900;
+                text-align:center;
+
+                /* MULTI COLOR HEADING */
+                background: linear-gradient(90deg, #ff6a00, #ee0979, #2193b0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                margin-bottom:15px;
+            }
+
+            /* 📊 IMAGE */
+            .card img{
+                width:100%;
+                border-radius:10px;
+                display:block;
+                margin:auto;
+            }
+
+            /* 🔘 BUTTON */
+            button{
+                display:block;
+                margin:30px auto;
+                padding:12px 25px;
+                border:none;
+                border-radius:8px;
+
+                background: linear-gradient(90deg, #2a5298, #1b5e20);
+                color:white;
+
+                font-weight:bold;
+                cursor:pointer;
+                transition:0.3s;
+            }
+
+            button:hover{
+                transform:scale(1.05);
+                opacity:0.9;
+            }
+
+            /* 📱 MOBILE */
+            @media (max-width: 768px){
+                .grid{
+                    grid-template-columns: 1fr;
+                }
+            }
+
+        </style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+    <h1>📊 Accident Analysis Dashboard</h1>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>1. Severity Analysis</h2>
+            <img src="{{ url_for('static', filename='charts/severity_chart.png') }}">
+        </div>
+
+        <div class="card">
+            <h2>2. Weather Analysis</h2>
+            <img src="{{ url_for('static', filename='charts/weather_chart.png') }}">
+        </div>
+
+        <div class="card">
+            <h2>3. Road Type Analysis</h2>
+            <img src="{{ url_for('static', filename='charts/roadtype_chart.png') }}">
+        </div>
+
+        <div class="card">
+            <h2>4. Traffic Density Analysis</h2>
+            <img src="{{ url_for('static', filename='charts/traffic_chart.png') }}">
+        </div>
+
+    </div>
+
+    <a href="/"><button>🏠 Back to Home</button></a>
+
+</div>
+
+</body>
+</html>

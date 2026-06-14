@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:"Segoe UI", sans-serif;
+
+            /* 🌈 soft premium background */
+            background: linear-gradient(135deg,#eef2ff,#ecfeff,#f0fdf4);
+        }
+
+        /* 🧊 MAIN CARD */
+        .card{
+            width:45%;
+            margin:60px auto;
+            background:white;
+
+            border-radius:20px;
+            padding:40px;
+
+            box-shadow:0 15px 40px rgba(0,0,0,0.15);
+
+            text-align:center;
+        }
+
+        /* 🔥 TITLE */
+        h1{
+            font-size:32px;
+            font-weight:900;
+
+            background: linear-gradient(90deg,#1d3557,#3b82f6,#8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom:25px;
+        }
+
+        /* 🚨 RISK BOX */
+        .risk-box{
+            padding:25px;
+            border-radius:15px;
+
+            margin:20px 0;
+        }
+
+        /* 🔴 HIGH */
+        .high{
+            background: linear-gradient(90deg,#ff4d4d,#ff6b6b);
+            color:white;
+        }
+
+        /* 🟠 MEDIUM */
+        .medium{
+            background: linear-gradient(90deg,#ffb703,#fb8500);
+            color:white;
+        }
+
+        /* 🟢 LOW */
+        .low{
+            background: linear-gradient(90deg,#2a9d8f,#52b788);
+            color:white;
+        }
+
+        /* 📊 TEXT */
+        .percentage{
+            font-size:48px;
+            font-weight:900;
+            margin:10px 0;
+        }
+
+        .label{
+            font-size:18px;
+            font-weight:700;
+            opacity:0.9;
+        }
+
+        /* 📝 RECOMMENDATION */
+        .note{
+            margin-top:20px;
+            font-size:16px;
+            color:#334155;
+            font-weight:600;
+            line-height:1.5;
+        }
+
+        /* 🔘 BUTTON */
+        a button{
+            margin-top:25px;
+            padding:12px 20px;
+
+            border:none;
+            border-radius:10px;
+
+            background: linear-gradient(90deg,#3b82f6,#8b5cf6);
+            color:white;
+
+            font-size:15px;
+            font-weight:700;
+
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        a button:hover{
+            transform:scale(1.05);
+        }
+
+        /* 📱 MOBILE */
+        @media (max-width:768px){
+            .card{
+                width:85%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>🚦 Accident Risk Prediction Result</h1>
+
+    {% if prediction == "High" %}
+        <div class="risk-box high">
+            <div class="label">Risk Level</div>
+            <div class="percentage">{{ percentage }}%</div>
+            <div>⚠ High Accident Risk</div>
+        </div>
+
+    {% elif prediction == "Medium" %}
+        <div class="risk-box medium">
+            <div class="label">Risk Level</div>
+            <div class="percentage">{{ percentage }}%</div>
+            <div>⚠ Moderate Risk</div>
+        </div>
+
+    {% else %}
+        <div class="risk-box low">
+            <div class="label">Risk Level</div>
+            <div class="percentage">{{ percentage }}%</div>
+            <div>✅ Low Risk</div>
+        </div>
+    {% endif %}
+
+    <div class="note">
+        {{ recommendation }}
+    </div>
+
+    <a href="/predict">
+        <button>🔁 Try Again</button>
+    </a>
+
+</div>
+
+</body>
+</html>

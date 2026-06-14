@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Project</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* 🌈 Animated Neon Background */
+        body{
+            margin:0;
+            font-family: Arial;
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #000428);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG{
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+        }
+
+        /* ✨ Glass Neon Card */
+        .about-box{
+            width: 80%;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(0,255,255,0.3);
+
+            box-shadow: 0 0 20px rgba(0,255,255,0.2),
+                        0 0 40px rgba(0,255,255,0.1);
+
+            color: white;
+            text-align: left;
+        }
+
+        /* 🌟 Neon Title */
+        .about-box h1{
+            text-align:center;
+            font-size:40px;
+            color:#00f7ff;
+            text-shadow: 0 0 10px #00f7ff,
+                         0 0 20px #00f7ff,
+                         0 0 40px #00f7ff;
+        }
+
+        /* 💡 Section Headings Neon */
+        .about-box h2{
+            color:#ff00ff;
+            margin-top:25px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* 📄 Text */
+        .about-box p{
+            font-size:17px;
+            line-height:1.8;
+            color:#e6e6e6;
+        }
+
+        /* 🔥 Highlight Text */
+        .highlight{
+            color:#00ff88;
+            font-weight:bold;
+            text-shadow:0 0 10px #00ff88;
+        }
+
+        /* 🔘 Button Neon */
+        button{
+            display:block;
+            margin:30px auto 0;
+            padding:12px 25px;
+            border:none;
+            border-radius:10px;
+            background: linear-gradient(90deg,#00f7ff,#ff00ff);
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            box-shadow: 0 0 15px #00f7ff;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.1);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        .footer-note{
+            text-align:center;
+            margin-top:30px;
+            color:#aaa;
+        }
+
+    </style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="about-box">
+
+    <h1>🚗 Accident Prone Road Prediction</h1>
+
+    <h2>📌 Project Overview</h2>
+    <p>
+        This system uses <span class="highlight">Machine Learning</span> to predict accident risk based on road conditions,
+        weather, traffic density and other parameters.
+    </p>
+
+    <h2>🎯 Objective</h2>
+    <p>
+        To identify <span class="highlight">high risk roads</span> and help reduce road accidents using data analysis.
+    </p>
+
+    <h2>🧠 Technology Stack</h2>
+    <p>
+        Python, Flask, Machine Learning, Pandas, Scikit-learn, HTML, CSS
+    </p>
+
+    <h2>📊 Dataset</h2>
+    <p>
+        20,000+ records including road type, weather, visibility, traffic conditions and accident severity.
+    </p>
+
+    <h2>🚀 Future Scope</h2>
+    <p>
+        Can be upgraded with <span class="highlight">real-time GPS tracking</span>, live traffic APIs and mobile apps.
+    </p>
+
+    
+
+    <a href="/">
+        <button>🏠 Back to Home</button>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accident Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+    body{
+        margin:0;
+        font-family: "Segoe UI", sans-serif;
+
+        /* soft premium background */
+        background: linear-gradient(120deg, #f1f5f9, #e0f2fe, #fefefe);
+    }
+
+    .wrapper{
+        width:55%;
+        margin:40px auto;
+    }
+
+    .card{
+        background: white;
+        border-radius:18px;
+        padding:35px;
+
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+
+        border-top: 5px solid #3b82f6;
+    }
+
+    /* 🔥 MAIN TITLE (VERY STRONG DIFFERENCE) */
+    h1{
+        text-align:center;
+        font-size:36px;
+        font-weight:900;
+
+        background: linear-gradient(90deg,#1d3557,#3b82f6,#7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        margin-bottom:25px;
+        letter-spacing:1px;
+    }
+
+    /* 📌 SECTION HEADINGS */
+    .section-title{
+        font-size:16px;
+        font-weight:900;
+
+        color:white;
+        background: linear-gradient(90deg,#3b82f6,#6366f1);
+
+        padding:8px 12px;
+        border-radius:8px;
+
+        margin-top:20px;
+        margin-bottom:10px;
+    }
+
+    /* 🧾 LABELS (LIGHT DIFFERENCE FROM HEADINGS) */
+    label{
+        font-size:14px;
+        font-weight:800;
+        display:block;
+        margin-top:10px;
+
+        /* 🌈 COLORED SUB HEADINGS */
+        background: linear-gradient(90deg,#0f172a,#1d4ed8,#06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        letter-spacing:0.5px;
+    }
+
+    /* 🎯 INPUTS */
+    input, select{
+        width:100%;
+        padding:12px;
+
+        margin-top:6px;
+        margin-bottom:14px;
+
+        border-radius:10px;
+        border:1px solid #cbd5e1;
+
+        font-size:14px;
+        color:#111827;   /* input text dark */
+
+        outline:none;
+        transition:0.3s;
+    }
+
+    input:focus, select:focus{
+        border-color:#3b82f6;
+        box-shadow:0 0 10px rgba(59,130,246,0.25);
+    }
+
+    /* 🚀 BUTTON */
+    button{
+        width:100%;
+        padding:14px;
+
+        border:none;
+        border-radius:12px;
+
+        font-size:16px;
+        font-weight:900;
+
+        color:white;
+
+        background: linear-gradient(90deg,#3b82f6,#7c3aed);
+        cursor:pointer;
+
+        transition:0.3s;
+        margin-top:15px;
+    }
+
+    button:hover{
+        transform: translateY(-2px);
+        box-shadow:0 10px 25px rgba(59,130,246,0.4);
+    }
+
+    /* 📱 MOBILE */
+    @media (max-width: 768px){
+        .wrapper{
+            width:90%;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="wrapper">
+
+    <div class="card">
+
+        <h1>🚦 Accident Risk Prediction</h1>
+
+        <form method="POST">
+
+            <div class="section-title">Road & Environment</div>
+
+            <label>Road Type</label>
+            <select name="road_type">
+                <option value="highway">Highway</option>
+                <option value="urban">Urban</option>
+                <option value="rural">Rural</option>
+            </select>
+
+            <label>Weather</label>
+            <select name="weather">
+                <option value="clear">Clear</option>
+                <option value="fog">Fog</option>
+                <option value="rain">Rain</option>
+            </select>
+
+            <label>Visibility</label>
+            <select name="visibility">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+            <div class="section-title">Traffic Conditions</div>
+
+            <label>Traffic Density</label>
+            <select name="traffic_density">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label>Traffic Signal (0 or 1)</label>
+            <input type="number" name="traffic_signal" required>
+
+            <label>Peak Hour (0 or 1)</label>
+            <input type="number" name="is_peak_hour" required>
+
+            <div class="section-title">Physical Conditions</div>
+
+            <label>Temperature</label>
+            <input type="number" name="temperature" required>
+
+            <label>Lanes</label>
+            <input type="number" name="lanes" required>
+
+            <button type="submit">🔮 Predict Accident Risk</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
